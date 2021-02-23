@@ -8,7 +8,7 @@ def returnTitleAndArtist(track):
     if(len(track[0].split('-')) == 2):
         return [part.strip() for part in track[0].split('-')][::-1]
     else:  # Either Trackname and Artist are Correct or something weird is going on
-        return [track[0], track[1]]
+        return [track[0].strip(), track[1].strip()]
 
 
 def findExists(trackToCheck, prevTracks=[], databaseCursor=False):
@@ -16,8 +16,9 @@ def findExists(trackToCheck, prevTracks=[], databaseCursor=False):
     if(len(prevTracks) > 0):
         previousTracks += [returnTitleAndArtist(track) for track in prevTracks]
     if(databaseCursor != False):
-        databaseCursor.execute('SELECT title, artist FROM tracks')
-        previousTracks += databaseCursor.fetchall()
+        databaseCursor.execute(
+            'SELECT title, artist FROM tracks where title =? and artist=?', returnTitleAndArtist(trackToCheck))
+        previousTracks += [list(res) for res in databaseCursor.fetchall()]
     if(returnTitleAndArtist(trackToCheck) in previousTracks):
         return True
     else:
@@ -69,3 +70,5 @@ if __name__ == "__main__":
 
     print(findExists(["TestTitle", "TestArtist"], [
         ["TestTitle", "TestArtist"]], False))
+    print(findExists(["Headlights", "Sophie Hunger"], [
+        ["TestTitle", "TestArtist"]], c))

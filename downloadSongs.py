@@ -7,11 +7,10 @@ import helperFunctions
 
 conn = sqlite3.connect('tracks.db')
 c = conn.cursor()
+apikey = open("apikey.txt").readline().rstrip()
 
 # Step 0: set parameters
-# Wether or not to insert tracks into the database that have already been inserted
-
-apikey = open("apikey.txt").readline().rstrip()
+# Whether or not to insert tracks into the database that have already been inserted
 reinsert = False
 
 # Step 0.5: Helper Functions
