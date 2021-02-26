@@ -44,10 +44,8 @@ I guess you can change it out for any radio Stream you like.
 - Genre classification
 - Switch API, maybe even local recognition with AcousticID Database if thats possible
 
-# Caveats
-
-You tell me
 
 # Known Issues
 
-None yet, but I havent done any testing whatsoever, just used it for like 20 minutes for my own purposes.
+- Limited amount of seconds per month to analyse
+- 2 Versions of a song are recognized as different songs, although they should be filtered
