@@ -13,6 +13,9 @@ This is nothing advanced, I just implemented this in like an hour. And I guess i
 
 You have to create an Account at https://audiotag.info/
 Create an API Token and save it in apikey.txt
+With their free plan, you get 10000s of free recognition per month. If you use 8s snippets (I have to do some more testing in order to confirm that thats enough in most cases), you would be able to analyse 1250 songs monthly, or 1 song every 35 Minutes.
+Because this may not be sufficient, im currently looking for good, open source alternatives to audiotag. (Im Looking into acousticID, but I cant get it to work as of right now)
+
 
 ## 2. Create Database
 
@@ -39,6 +42,7 @@ I guess you can change it out for any radio Stream you like.
 - Maybe filter "Radio Edits", because they are basically the same song
 - Add a new Table that tracks how often and when a given song has been played (for analytics one might want to do)
 - Genre classification
+- Switch API, maybe even local recognition with AcousticID Database if thats possible
 
 # Caveats
 
